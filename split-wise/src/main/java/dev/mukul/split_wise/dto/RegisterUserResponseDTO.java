@@ -1,2 +1,10 @@
-package dev.mukul.split_wise.dto;public class RegisterUserResponseDTO {
+package dev.mukul.split_wise.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class RegisterUserResponseDTO {
+    private Long userId;
 }
