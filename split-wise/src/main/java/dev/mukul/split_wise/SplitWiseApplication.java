@@ -2,6 +2,7 @@ package dev.mukul.split_wise;
 
 import dev.mukul.split_wise.service.command.registry.CommandRegistry;
 import dev.mukul.split_wise.service.command.registry.RegisterUserCommand;
+import dev.mukul.split_wise.service.command.registry.SettleUpGroupCommand;
 import dev.mukul.split_wise.service.command.registry.UpdateProfileCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,6 +22,9 @@ public class SplitWiseApplication implements CommandLineRunner {
 	@Autowired
 	UpdateProfileCommand updateProfileCommand;
 
+	@Autowired
+	SettleUpGroupCommand settleUpGroupCommand;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SplitWiseApplication.class, args);
 	}
@@ -31,9 +35,11 @@ public class SplitWiseApplication implements CommandLineRunner {
 
 		commandRegistry.register(registerUserCommand);
 		commandRegistry.register(updateProfileCommand);
+		commandRegistry.register(settleUpGroupCommand);
 
 		commandRegistry.execute("Register vinsmokesanji 003 namisswwaann");
 		commandRegistry.execute("003 UpdateProfile robinchwan");
+		commandRegistry.execute("003 SettleUp 121");
 
 		//u1 UpdateProfile robinchwan
 
